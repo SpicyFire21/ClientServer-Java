@@ -13,7 +13,7 @@ class EchoClient  {
 	int port = -1;
  
 	if (args.length != 2) {
-	    System.out.println("usage: EchoClient ip_server port message");
+        System.out.println("usage: EchoClient ip_server port");
 	    System.exit(1);
 	}
  
@@ -32,10 +32,10 @@ class EchoClient  {
 
         while (true) {
 
-            System.out.println("écrivez votre message :");
+            System.out.println("Écrivez votre message :");
             String message = clavier.readLine();
 
-            if (message.equalsIgnoreCase("quit")) {
+            if (message == null || message.isEmpty()) {
                 break;
             }
 
@@ -43,7 +43,6 @@ class EchoClient  {
 
             String reponse = br.readLine();
             System.out.println("Le serveur répond : " + reponse);
-
         }
         sock.close();
 	    br.close();

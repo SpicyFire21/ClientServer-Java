@@ -37,12 +37,18 @@ class EchoServer  {
             String line;
 
             while ((line = br.readLine()) != null) {
+
+                if (line.isEmpty()) {
+                    break;
+                }
+
                 System.out.println("Le client me dit : " + line);
                 ps.println(line);
             }
 
             br.close();
             ps.close();
+            sock.close();
             System.out.println("Client déconnecté");
         }
 
